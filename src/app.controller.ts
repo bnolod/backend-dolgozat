@@ -52,7 +52,8 @@ export class AppController {
       errors.push("Hibás email formátum!");
     }
 
-    if (body.date < new Date()) {
+    const bodyDate = new Date(body.date);
+    if (bodyDate < new Date()) {
       errors.push("Hibás dátum!");
     }
     if ((Number(body.guests) < 1) || (Number(body.guests) > 10)) {
